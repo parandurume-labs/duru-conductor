@@ -120,4 +120,4 @@ See [LICENSE](LICENSE) for full terms and [GRATITUDE.md](GRATITUDE.md) for the g
 경기도 광명시 (Gwangmyeong City, Gyeonggi-do, South Korea)
 Microsoft MVP · AI+XR
 
-📧 hello@parandurume.com
+📧 contact@parandurume.com
