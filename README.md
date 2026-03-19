@@ -24,7 +24,7 @@ No programming experience required. Just tell the AI what you want to build.
 ## 설치 (Installation)
 
 ```bash
-npx add-skill parandurume-labs/conductor
+npx skills add parandurume-labs/conductor
 ```
 
 That's it. After installation, type `/conductor` in your AI coding agent to start.
