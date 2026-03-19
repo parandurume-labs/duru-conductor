@@ -1,0 +1,25 @@
+{
+  "name": "conductor",
+  "version": "1.0.0",
+  "description": "Universal project orchestrator — Agent Skill collection for any project type",
+  "scripts": {
+    "build": "node packages/build/build.js",
+    "validate": "node packages/build/validate.js"
+  },
+  "license": "SEE LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/parandurume-labs/conductor"
+  },
+  "keywords": [
+    "agent-skills",
+    "agentskills",
+    "conductor",
+    "orchestrator",
+    "claude-code",
+    "ai-agent"
+  ],
+  "author": "Parandurume Inc. <hello@parandurume.com>",
+  "dependencies": {},
+  "devDependencies": {}
+}
