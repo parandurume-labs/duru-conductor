@@ -98,22 +98,33 @@ A single project may use roles from multiple pools.
 
 ## Project Type → Recommended Team
 
+### 소상공인 / SME (Korean Small Business)
+
+| What You Want to Build | Recommended Roles | References |
+|---|---|---|
+| 소상공인 웹사이트 (예약 포함) | Frontend + Integration + QA + Designer | SME-TEMPLATES.md 참조 |
+| 소상공인 웹사이트 (정보만) | Frontend + QA + Designer | SME-TEMPLATES.md 참조 |
+
+### Software
+
 | What You Want to Build | Recommended Roles | Optional Skills |
 |---|---|---|
-| Mobile app | Architect + Backend + Frontend + QA | |
-| Web application | Architect + Backend + Frontend + QA | |
+| Web application (웹 앱) | Architect + Backend + Frontend + QA | |
+| Mobile app (모바일 앱) | Architect + Backend + Frontend + QA | |
 | REST API / backend service | Architect + Backend + QA | |
+| Full-stack app with deployment | Architect + Backend + Frontend + Infra + QA | azure-best-practices |
 | Azure cloud service | Architect + Backend + Infra + QA | azure-best-practices |
 | Teams bot / M365 integration | Architect + Backend + Integration + QA | m365-workflows |
-| E-book or novel | Researcher + Writer + Editor + Designer | |
-| Blog or article series | Researcher + Writer + Editor | |
-| Research paper | Researcher + Writer + Editor | |
-| Government / business proposal | Planner + Analyst + Writer + Editor | |
-| Business plan | Planner + Analyst + Strategist + Writer | |
-| Marketing campaign | Strategist + Writer + Designer + Analyst | |
-| Product roadmap | Planner + Strategist + Analyst | |
-| Full-stack app with deployment | Architect + Backend + Frontend + Infra + QA | azure-best-practices |
-| Content website with CMS | Architect + Frontend + Writer + Editor | |
+
+### Content & Business
+
+| What You Want to Build | Recommended Roles | Optional Skills |
+|---|---|---|
+| E-book or novel (전자책/소설) | Researcher + Writer + Editor + Designer | |
+| Blog or article series (블로그) | Researcher + Writer + Editor | |
+| Business plan (사업 계획서) | Planner + Analyst + Strategist + Writer | |
+| Government / business proposal (제안서) | Planner + Analyst + Writer + Editor | |
+| Marketing campaign (마케팅) | Strategist + Writer + Designer + Analyst | |
 
 > **Mixed projects**: If a project spans multiple types (e.g., "build an app AND write the user manual"), combine the relevant roles from each category.
 

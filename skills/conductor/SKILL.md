@@ -43,6 +43,17 @@ Read the user's request carefully. Identify what is already known and what is mi
 | **Constraints** | Budget, time, limits? | $0 budget, launch in 4 weeks | Finish by December, solo author |
 | **Quality** | How good must it be? | 90% test coverage, accessible | Professional editing, print-ready |
 
+### Step 1.5 — Detect SME Project
+
+사용자 요청에 소상공인/로컬 비즈니스 관련 키워드가 포함되면:
+
+1. `references/SME-TEMPLATES.md`를 로드합니다
+2. 업종을 감지하고 해당 User Story 템플릿을 제안합니다
+3. 공통 체크리스트(개인정보, 스팸방지, 예약)를 Intake Summary에 포함합니다
+4. "예약 시스템이 필요하신가요?" 를 clarifying questions에 포함합니다
+
+**판단 기준:** "미용실", "카페", "식당", "병원", "학원", "웹사이트", "홈페이지", "예약" 등의 키워드
+
 ### Step 2 — Ask Clarifying Questions
 
 Ask **up to 5 questions** to fill the gaps. Rules:
