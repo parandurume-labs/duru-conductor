@@ -218,9 +218,30 @@ This log enables re-entry if the session is interrupted, and provides data for `
 Before declaring a workstream complete, run the appropriate checks:
 
 **Software projects:**
-- [ ] Code runs without errors
-- [ ] Tests pass
-- [ ] No secrets or credentials in code
+
+*Syntax & Dependencies:*
+- [ ] All source files parse without syntax errors
+- [ ] All imports resolve (no circular imports, no missing modules)
+- [ ] All package init files exist (`__init__.py` for Python, etc.)
+- [ ] Dependency install completes without errors (`pip install`, `npm ci`)
+- [ ] No version conflicts between pinned dependencies
+- [ ] No duplicate entries in dependency files
+- [ ] No unused dependencies (listed but never imported)
+
+*Runtime Correctness:*
+- [ ] SDK/library method calls use correct parameter types (not just correct names)
+- [ ] HTTP responses use framework response objects (not raw tuples for status codes)
+- [ ] All file paths referenced in Dockerfiles, configs, and scripts exist
+- [ ] Browser API limitations addressed (e.g., EventSource cannot send Authorization headers — use query param fallback)
+
+*Security:*
+- [ ] No hardcoded secrets, API keys, or passwords in code
+- [ ] Auth required on all data-modifying endpoints
+- [ ] CORS restricted to known origins (no wildcard `*` in production)
+- [ ] LLM calls set `max_tokens` to prevent runaway costs
+
+*Tests:*
+- [ ] Tests exist and pass
 - [ ] Linting/formatting applied
 
 **Content projects:**
@@ -309,6 +330,7 @@ This does not mean over-engineering. It means: when the cost of being thorough i
 | Making the retrospective only positive | Misses learning opportunities | Be honest — include what went wrong and why |
 | Using jargon with beginners | Alienates non-technical users | Use plain language; explain technical terms when unavoidable |
 | Modifying skills without human approval | Skills affect all future projects | Always mark patches as DRAFT and require explicit approval |
+| Shallow QA ("it parses, ship it") | Misses runtime type errors, dependency conflicts, and browser API limitations that only surface in production | Run dependency install, verify SDK parameter types, test Docker builds, check browser compatibility |
 
 ---
 

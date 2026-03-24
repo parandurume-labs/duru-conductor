@@ -49,6 +49,8 @@ Based on the project type, activate the appropriate review checklist. For mixed 
 |---|---|---|
 | **Security Basics** | No hardcoded secrets, API keys, or passwords in code; input validation on user-facing endpoints; dependencies without known critical vulnerabilities | CRITICAL |
 | **Correctness** | Code does what it claims; edge cases handled; error paths don't silently fail | HIGH |
+| **Runtime Correctness** | SDK method signatures match documentation; HTTP responses use framework response objects (not tuples); file paths in Dockerfiles exist; browser API limitations addressed (e.g., EventSource cannot send custom headers) | HIGH |
+| **Dependency Resolution** | `pip install` / `npm ci` completes without errors; no version conflicts between pinned packages; no duplicate entries in dependency files | HIGH |
 | **Test Coverage** | Tests exist and pass; critical paths have tests; test names describe behavior | HIGH |
 | **Code Quality** | Consistent naming; no excessive duplication; functions do one thing; files are reasonable length | MEDIUM |
 | **Dependency Hygiene** | No unused dependencies; no wildcard versions; lock file committed | MEDIUM |
