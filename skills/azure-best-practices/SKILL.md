@@ -435,6 +435,154 @@ cors: {
 
 ---
 
+## Category 4b: Key Vault RBAC Gotchas (HIGH)
+
+### Rule 15b: Contributor Does NOT Grant Key Vault Secret Access
+
+**Impact:** HIGH — Apps with Contributor role on a resource group still cannot read Key Vault secrets when RBAC is enabled.
+
+❌ **Wrong assumption:**
+```
+"The backend has Contributor role on the resource group, so it can read Key Vault secrets."
+```
+
+✅ **Correct:** When Key Vault uses RBAC authorization (`enableRbacAuthorization: true`), you need **separate data-plane roles**:
+
+| Who | Role | Purpose |
+|---|---|---|
+| Application (Managed Identity) | **Key Vault Secrets User** | Read secrets at runtime |
+| Developer / CI/CD | **Key Vault Secrets Officer** | Write/manage secrets |
+| Admin | **Key Vault Administrator** | Full control |
+
+```bicep
+// Grant the app read-only access to secrets
+resource kvRoleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  scope: keyVault
+  properties: {
+    roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions',
+      '4633458b-17de-408a-b874-0445c86b69e6') // Key Vault Secrets User
+    principalId: containerApp.identity.principalId
+    principalType: 'ServicePrincipal'
+  }
+}
+```
+
+**Why:** Key Vault separates management-plane (Contributor) from data-plane (Secrets User/Officer). This is by design for defense-in-depth.
+
+### Rule 15c: Container Apps Need AcrPull for ACR
+
+**Impact:** HIGH — Container Apps with `identity: 'system'` for ACR registry fail if no AcrPull role is assigned.
+
+❌ **Wrong:**
+```bicep
+registries: [{
+  server: acrLoginServer
+  identity: 'system'  // Assumes Managed Identity can pull — it cannot without AcrPull
+}]
+```
+
+✅ **Correct:** Assign AcrPull role to the Container App's managed identity:
+```bicep
+resource acrPullRole 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  scope: acr
+  properties: {
+    roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions',
+      '7f951dda-4ed3-4680-a7ca-43fe172d538d') // AcrPull
+    principalId: containerApp.identity.principalId
+    principalType: 'ServicePrincipal'
+  }
+}
+```
+
+**Why:** Without AcrPull, the Container App revision will fail with "Identity with resource ID 'system' not found for registry." This blocks all updates to the container app.
+
+---
+
+## Category 4c: Azure OpenAI Multi-Region (HIGH)
+
+### Rule 15d: Use Multiple Regions for Latest Models
+
+**Impact:** HIGH — The newest models (e.g., GPT-5.4) often launch in limited regions first.
+
+✅ **Correct pattern:** Deploy Azure OpenAI resources in multiple regions and route via LiteLLM:
+
+```
+Korea Central:  gpt-4o, gpt-5.1-chat, gpt-5-pro
+East US 2:      gpt-5.4-mini (newest family)
+```
+
+```python
+# LiteLLM routes to the correct endpoint based on model
+MODEL_TIERS = {
+    "generation": [
+        {"model": "azure/gpt-5-1-chat", "api_base": KR_ENDPOINT},
+        {"model": "azure/gpt-5-4-mini", "api_base": US_ENDPOINT},  # fallback
+    ],
+}
+```
+
+**Why:** Korea Central may not have the latest models on launch day. Having a secondary region (East US 2 or Sweden Central) ensures access to new models while keeping primary workloads in-region.
+
+### Rule 15e: Azure Cache for Redis Takes 15+ Minutes to Provision
+
+**Impact:** MEDIUM — Redis provisioning blocks downstream Bicep resources that depend on it.
+
+✅ **Correct:** For sandbox/dev environments, consider using a Redis container on Azure Container Apps instead of managed Azure Cache for Redis:
+
+```bicep
+// Sandbox: use containerized Redis (fast, cheap)
+// Production: use Azure Cache for Redis (managed, HA)
+```
+
+**Why:** Azure Cache for Redis (even Basic C0) takes 10-20 minutes to provision. This delays initial deployments significantly. Containerized Redis starts in seconds.
+
+---
+
+## Category 4d: Bicep & IaC Gotchas (HIGH)
+
+### Rule 15f: Use JSON Parameter Files for Secure Params
+
+**Impact:** HIGH — Bicep `.bicepparam` files require ALL parameters declared, including secrets. JSON parameter files allow CLI overrides.
+
+❌ **Wrong:**
+```
+// sandbox.bicepparam — must declare ALL params including secrets
+using '../main.bicep'
+param environment = 'sandbox'
+// ERROR: postgresPassword and jwtSecret are missing
+```
+
+✅ **Correct:** Use JSON parameter files and pass secrets via CLI:
+```json
+// sandbox.json
+{
+  "parameters": {
+    "environment": { "value": "sandbox" },
+    "location": { "value": "koreacentral" }
+  }
+}
+```
+```bash
+az deployment group create \
+  --parameters @infra/parameters/sandbox.json \
+  --parameters postgresPassword="$PG_PASS" jwtSecret="$JWT_SECRET"
+```
+
+**Why:** Secrets should never appear in parameter files (even `.bicepparam`). JSON files + CLI overrides keep secrets out of source control.
+
+### Rule 15g: Founders Hub Subscriptions Limit RBAC via CLI
+
+**Impact:** MEDIUM — `az role assignment create` may fail on sponsored subscriptions with "MissingSubscription" error.
+
+✅ **Workaround:** Assign roles via the Azure Portal instead:
+1. Navigate to the resource → **Access Control (IAM)**
+2. **+ Add** → **Add role assignment**
+3. Select role → Select principal → **Review + assign**
+
+**Why:** Some sponsored/educational subscriptions have API-level restrictions on role assignments. The Portal uses a different auth flow that works.
+
+---
+
 ## Category 5: Data & Storage (MEDIUM)
 
 ### Rule 16: Cosmos DB — Use Partition Keys Wisely
@@ -559,10 +707,14 @@ Run through this checklist before every production deployment:
 - [ ] CI/CD uses workload identity federation (no service principal secrets)
 - [ ] All secrets stored in Key Vault (not in environment variables or config)
 - [ ] Role assignments follow least privilege
+- [ ] Key Vault Secrets User role assigned to app Managed Identity (Contributor is NOT enough)
+- [ ] Key Vault Secrets Officer role assigned to developer/deployer accounts
+- [ ] AcrPull role assigned to Container App Managed Identities
 
 **Container Apps / Compute:**
 - [ ] Image tags are pinned (no `:latest`)
 - [ ] Health probes configured (liveness + readiness)
+- [ ] Health probe endpoints return proper HTTP status codes (use JSONResponse, not tuples)
 - [ ] CPU and memory limits set
 - [ ] HTTPS only enabled
 
@@ -571,12 +723,20 @@ Run through this checklist before every production deployment:
 - [ ] CORS restricted to known origins
 - [ ] Diagnostic logging enabled
 
+**Infrastructure as Code:**
+- [ ] Bicep parameter files use JSON format (not .bicepparam) for secret override support
+- [ ] Secrets passed via CLI `--parameters` flag, never in parameter files
+- [ ] Role assignments included in Bicep modules (don't rely on manual Portal setup)
+
 **Cost:**
 - [ ] Dev/test environments use consumption or basic SKUs
 - [ ] Budget alerts configured
 - [ ] Dev VMs have auto-shutdown scheduled
+- [ ] Consider containerized Redis for sandbox (Azure Cache takes 15+ min to provision)
 
 **AI Services:**
 - [ ] `max_tokens` set on all Azure OpenAI calls
 - [ ] Retry with exponential backoff for rate limits
 - [ ] Azure OpenAI accessed via Managed Identity (not API key)
+- [ ] Multi-region Azure OpenAI for access to newest models
+- [ ] LiteLLM or equivalent router for provider failover and cost tracking
