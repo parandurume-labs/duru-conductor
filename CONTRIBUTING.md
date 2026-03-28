@@ -36,7 +36,7 @@ allowed-tools: Bash Read Write Edit Glob Grep
 metadata:
   author: your-name
   version: "1.0.0"
-  license: GM-Social-v1.0
+  license: GM-Social-v2.0
 ---
 
 # Your Skill Title
@@ -86,9 +86,9 @@ npm run build      # Regenerate AGENTS.md and CLAUDE.md
 
 ## License Agreement
 
-By contributing to this repository, you agree that your contributions will be licensed under the **GM-Social License v1.0**. See [LICENSE](LICENSE) for details.
+By contributing to this repository, you agree that your contributions will be licensed under the **GM-Social License v2.0**. See [LICENSE](LICENSE) for details.
 
-이 저장소에 기여함으로써, 귀하의 기여가 **GM-Social License v1.0** 하에 라이선스됨에 동의합니다.
+이 저장소에 기여함으로써, 귀하의 기여가 **GM-Social License v2.0** 하에 라이선스됨에 동의합니다.
 
 ---
 

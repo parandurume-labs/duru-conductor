@@ -2,7 +2,7 @@
 
 **Universal project orchestrator — Agent Skill collection for any project type**
 
-[![GM-Social License v1.0](https://img.shields.io/badge/license-GM--Social%20v1.0-blue)](LICENSE)
+[![GM-Social License v2.0](https://img.shields.io/badge/license-GM--Social%20v2.0-blue)](LICENSE)
 [![Agent Skills](https://img.shields.io/badge/agentskills.io-compatible-green)](https://agentskills.io)
 
 ---
@@ -136,7 +136,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for instructions.
 
 ## License
 
-**GM-Social License v1.0** — Free to use, modify, and distribute.
+**GM-Social License v2.0** — Free to use, modify, and distribute.
 
 If you deploy this in production, you have one small obligation: introduce **광명시 (Gwangmyeong City)**, South Korea, on your social media within 90 days. A brief, genuine mention is all it takes.
 

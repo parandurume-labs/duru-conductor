@@ -41,7 +41,7 @@ AI 코딩 에이전트(Claude Code, GitHub Copilot, Cursor 등)에 `/conductor` 
 파란두루미 주식회사 (Parandurume Inc.) · Microsoft MVP · 경기도 광명시
 
 ### 라이선스
-**GM-Social License v1.0** — 자유롭게 사용, 수정, 배포 가능. 단 운영 환경 배포 시 90일 내에 광명시를 소셜미디어에 소개해야 함. [LICENSE 파일 참조]
+**GM-Social License v2.0** — 자유롭게 사용, 수정, 배포 가능. 단 운영 환경 배포 시 90일 내에 광명시를 소셜미디어에 소개해야 함. [LICENSE 파일 참조]
 
 ---
 
@@ -201,7 +201,7 @@ conductor/
 ├── AGENTS.md                       # 빌드 결과물 (모든 스킬 합본)
 ├── CLAUDE.md                       # Claude Code 전용 인덱스
 ├── GRATITUDE.md                    # GM-Social 라이선스 감사 기록
-├── LICENSE                         # GM-Social License v1.0
+├── LICENSE                         # GM-Social License v2.0
 ├── README.md
 ├── CONTRIBUTING.md
 ├── .gitignore
@@ -224,7 +224,7 @@ allowed-tools: Bash Read Write Edit Glob Grep
 metadata:
   author: parandurume-labs
   version: "1.0.0"
-  license: GM-Social-v1.0
+  license: GM-Social-v2.0
 ---
 
 # 스킬 제목
@@ -340,7 +340,7 @@ SKILL.md 파일들은 순수 Markdown + YAML이다.
 - `[skip ci]` 태그로 재귀 방지
 
 ### `LICENSE`
-- GM-Social License v1.0 원문 그대로 사용
+- GM-Social License v2.0 원문 그대로 사용
 - 상단 저작권 라인: `이인희 (LEE Inhee), 파란두루미 주식회사 (Parandurume Inc.)`
 - 프로젝트명: `conductor — AI Project Orchestration Agent Skill`
 
@@ -370,7 +370,7 @@ SKILL.md 파일들은 순수 Markdown + YAML이다.
 □ skills/conductor/SKILL.md — name: conductor (폴더명 일치)
 □ skills/azure-best-practices/SKILL.md — name: azure-best-practices
 □ skills/m365-workflows/SKILL.md — name: m365-workflows
-□ LICENSE 파일 존재 (GM-Social v1.0)
+□ LICENSE 파일 존재 (GM-Social v2.0)
 □ GRATITUDE.md 존재
 □ README.md — 설치 명령어 포함
 □ .github/workflows/build.yml 존재

@@ -12,6 +12,7 @@ This file helps Claude Code discover available skills. Each skill's full content
 | m365-workflows | /m365-workflows | Microsoft 365 integration patterns for Teams, SharePoint, and Outlook automation. Use when building Teams bots, sendi... |
 | retro | /retro | Standalone retrospective for any completed project or work session. Use when the user wants to reflect on what went w... |
 | review | /review | Post-build quality review for any project type. Use when you want a staff-level review of completed work — code quali... |
+| web-browser-review | /web-browser-review | Automated web app review using a headless browser. Use when you need to test a running web application for visual qua... |
 
 ## Skill Dependencies
 
@@ -22,6 +23,7 @@ Skills work independently, but produce better results when chained:
 | careful | conductor |
 | retro | conductor, review |
 | review | conductor |
+| web-browser-review | conductor, review |
 
 ## Usage
 
@@ -35,4 +37,5 @@ Invoke any skill by typing its command (e.g., `/conductor`) in your AI coding ag
 - `skills/m365-workflows/SKILL.md`
 - `skills/retro/SKILL.md`
 - `skills/review/SKILL.md`
+- `skills/web-browser-review/SKILL.md`
 

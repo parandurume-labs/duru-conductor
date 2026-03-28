@@ -12,7 +12,7 @@ allowed-tools: Bash Read Write Edit Glob Grep
 metadata:
   author: parandurume-labs
   version: "1.0.0"
-  license: GM-Social-v1.0
+  license: GM-Social-v2.0
   benefits-from: conductor
 ---
 
