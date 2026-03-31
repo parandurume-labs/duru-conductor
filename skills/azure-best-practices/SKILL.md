@@ -22,6 +22,12 @@ This skill provides rules for building secure, reliable, and cost-effective Azur
 
 ---
 
+## Learned Patterns (Auto-Updated)
+
+Before applying the rules below, check if `LESSONS.md` exists in the project root. If it does, read the section tagged with `azure-best-practices` and apply those project-specific lessons alongside the rules below.
+
+---
+
 ## Category 1: Identity & Access (CRITICAL)
 
 ### Rule 1: Use Managed Identity — Never Embed Credentials
@@ -695,6 +701,387 @@ resource autoShutdown 'Microsoft.DevTestLab/schedules@2018-09-15' = {
   }
 }
 ```
+
+---
+
+## Category 7: Container Apps Advanced (HIGH)
+
+### Rule 22: Container Apps Jobs for Batch Workloads
+
+**Impact:** HIGH — Using always-on Container Apps for batch/scheduled work wastes compute.
+
+❌ **Wrong:**
+```bicep
+// Always-on container running a cron job internally
+resource app 'Microsoft.App/containerApps@2024-03-01' = {
+  name: 'batch-processor'
+  properties: {
+    template: {
+      containers: [{
+        name: 'batch'
+        image: 'myregistry.azurecr.io/batch:1.0'
+        // Runs 24/7, but only does work every hour
+      }]
+      scale: { minReplicas: 1, maxReplicas: 1 }
+    }
+  }
+}
+```
+
+✅ **Correct:**
+```bicep
+resource job 'Microsoft.App/jobs@2024-03-01' = {
+  name: 'batch-processor'
+  properties: {
+    configuration: {
+      triggerType: 'Schedule'
+      scheduleTriggerConfig: {
+        cronExpression: '0 * * * *'  // Every hour
+        parallelism: 1
+        replicaCompletionCount: 1
+      }
+      replicaTimeout: 1800  // 30 min max
+      replicaRetryLimit: 2
+    }
+    template: {
+      containers: [{
+        name: 'batch'
+        image: 'myregistry.azurecr.io/batch:1.0'
+        resources: { cpu: json('1.0'), memory: '2Gi' }
+      }]
+    }
+  }
+}
+```
+
+**Why:** Container Apps Jobs run on-demand or on a schedule and stop when done. You only pay for execution time. Use for data processing, report generation, cleanup tasks, and migration scripts.
+
+### Rule 23: Azure Static Web Apps with API Backend
+
+**Impact:** HIGH — Hosting static frontends on Container Apps or App Service is over-provisioned and costly.
+
+❌ **Wrong:**
+```bicep
+// Full Container App for a React SPA
+resource app 'Microsoft.App/containerApps@2024-03-01' = {
+  name: 'frontend'
+  properties: {
+    template: {
+      containers: [{
+        name: 'nginx'
+        image: 'myregistry.azurecr.io/frontend:1.0'
+        resources: { cpu: json('0.5'), memory: '1Gi' }
+      }]
+    }
+  }
+}
+```
+
+✅ **Correct:**
+```yaml
+# staticwebapp.config.json
+{
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": ["/api/*", "/images/*"]
+  },
+  "routes": [
+    { "route": "/api/*", "allowedRoles": ["authenticated"] }
+  ],
+  "responseOverrides": {
+    "401": { "redirect": "/login", "statusCode": 302 }
+  },
+  "platform": {
+    "apiRuntime": "node:18"
+  }
+}
+```
+
+```yaml
+# GitHub Actions deployment
+- uses: Azure/static-web-apps-deploy@v1
+  with:
+    azure_static_web_apps_api_token: ${{ secrets.SWA_TOKEN }}
+    app_location: "/"
+    api_location: "api"
+    output_location: "dist"
+```
+
+**Why:** Static Web Apps provides free SSL, global CDN, built-in auth, and API Functions backend. Free tier handles most SPAs. Use Container Apps only when you need WebSocket, SSR, or custom server logic.
+
+---
+
+## Category 8: Infrastructure as Code Advanced (HIGH)
+
+### Rule 24: Bicep Module Registry for Reusable Components
+
+**Impact:** HIGH — Copy-pasting Bicep modules across repos leads to drift and inconsistency.
+
+❌ **Wrong:**
+```
+# Copy-pasting the same container-app.bicep into every project
+project-a/infra/modules/container-app.bicep  # v1
+project-b/infra/modules/container-app.bicep  # v1 with local edits
+project-c/infra/modules/container-app.bicep  # v2, different from above
+```
+
+✅ **Correct:**
+```bicep
+// Reference module from Azure Container Registry
+module containerApp 'br:myregistry.azurecr.io/bicep/modules/container-app:1.2.0' = {
+  name: 'deploy-api'
+  params: {
+    name: 'my-api'
+    image: 'myregistry.azurecr.io/api:1.0'
+    environmentId: containerAppEnv.id
+    managedIdentity: true
+    minReplicas: 1
+  }
+}
+```
+
+```bash
+# Publish module to registry
+az bicep publish \
+  --file modules/container-app.bicep \
+  --target br:myregistry.azurecr.io/bicep/modules/container-app:1.2.0
+```
+
+**Why:** Bicep module registry in ACR provides versioning, immutable artifacts, and a single source of truth for infrastructure patterns. Tag modules with semantic versions.
+
+### Rule 25: Bicep Linting and What-If Before Deploy
+
+**Impact:** HIGH — Deploying untested Bicep can delete or misconfigure production resources.
+
+✅ **Correct:**
+```bash
+# 1. Lint — catch syntax and best practice issues
+az bicep lint --file main.bicep
+
+# 2. What-If — preview changes before applying
+az deployment group what-if \
+  --resource-group my-rg \
+  --template-file main.bicep \
+  --parameters @params.json \
+  --parameters apiKey=${{ secrets.API_KEY }}
+
+# 3. Deploy only after review
+az deployment group create \
+  --resource-group my-rg \
+  --template-file main.bicep \
+  --parameters @params.json \
+  --parameters apiKey=${{ secrets.API_KEY }}
+```
+
+**Why:** `what-if` shows creates, deletes, and modifications before they happen. Always run it in CI/CD before deploy. Use `--confirm-with-what-if` for interactive deployments.
+
+---
+
+## Category 9: Monitoring & Observability (HIGH)
+
+### Rule 26: Azure Monitor Alerts and Action Groups
+
+**Impact:** HIGH — Without alerting, outages go undetected until users report them.
+
+✅ **Correct:**
+```bicep
+resource actionGroup 'Microsoft.Insights/actionGroups@2023-01-01' = {
+  name: 'ops-team'
+  location: 'global'
+  properties: {
+    groupShortName: 'ops'
+    enabled: true
+    emailReceivers: [
+      { name: 'ops-email', emailAddress: 'ops@contoso.com' }
+    ]
+    // For Korean Teams channel notifications
+    webhookReceivers: [
+      {
+        name: 'teams-webhook'
+        serviceUri: teamsWebhookUrl
+        useCommonAlertSchema: true
+      }
+    ]
+  }
+}
+
+resource cpuAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
+  name: 'high-cpu-alert'
+  location: 'global'
+  properties: {
+    severity: 2
+    evaluationFrequency: 'PT5M'
+    windowSize: 'PT15M'
+    criteria: {
+      'odata.type': 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'
+      allOf: [{
+        name: 'cpu'
+        metricName: 'UsageNanoCores'
+        operator: 'GreaterThan'
+        threshold: 800000000  // 80% of 1 core
+        timeAggregation: 'Average'
+      }]
+    }
+    actions: [{ actionGroupId: actionGroup.id }]
+    targetResourceType: 'Microsoft.App/containerApps'
+    scopes: [containerApp.id]
+  }
+}
+```
+
+**Why:** Set alerts for: CPU > 80%, memory > 80%, HTTP 5xx > 1%, response time > 2s. Use Action Groups to route to email, Teams webhooks, or PagerDuty.
+
+### Rule 27: Application Insights for End-to-End Tracing
+
+**Impact:** HIGH — Without distributed tracing, diagnosing multi-service issues requires log correlation across services.
+
+✅ **Correct:**
+```python
+from azure.monitor.opentelemetry import configure_azure_monitor
+
+# One-line setup — auto-instruments requests, dependencies, exceptions
+configure_azure_monitor(
+    connection_string=os.environ["APPLICATIONINSIGHTS_CONNECTION_STRING"]
+)
+
+# Custom telemetry for business metrics
+from opentelemetry import metrics
+meter = metrics.get_meter("contoso-app")
+request_counter = meter.create_counter(
+    "business.requests",
+    description="Business operation requests"
+)
+
+@app.post("/api/orders")
+async def create_order(request):
+    request_counter.add(1, {"operation": "create_order", "region": "KR"})
+    # ... business logic
+```
+
+**Why:** Azure Monitor OpenTelemetry auto-instruments HTTP requests, database calls, and external dependencies. Add custom metrics for business KPIs. Use Application Map in Azure Portal to visualize service dependencies.
+
+---
+
+## Category 10: Cost Optimization (MEDIUM)
+
+### Rule 28: Reserved Instances and Savings Plans
+
+**Impact:** MEDIUM — Pay-as-you-go pricing is 30-60% more expensive than reserved capacity for predictable workloads.
+
+✅ **Decision guide:**
+```markdown
+| Workload Pattern | Recommendation | Savings |
+|---|---|---|
+| Steady 24/7 (prod DB, app server) | 1-year Reserved Instance | ~35% |
+| Steady 24/7, committed | 3-year Reserved Instance | ~55% |
+| Variable but predictable compute | Azure Savings Plan | ~25% |
+| Batch/dev/test | Spot VMs | ~60-90% |
+| Short-lived experiments | Pay-as-you-go | 0% (but no commitment) |
+```
+
+**Why:** After running a workload for 2+ months with stable usage, evaluate reserved pricing. Use Azure Advisor cost recommendations to identify candidates.
+
+### Rule 29: Azure Front Door for Global Distribution
+
+**Impact:** MEDIUM — Serving all traffic from a single region increases latency for global users.
+
+✅ **Correct:**
+```bicep
+resource frontDoor 'Microsoft.Cdn/profiles@2023-05-01' = {
+  name: 'contoso-fd'
+  sku: { name: 'Standard_AzureFrontDoor' }
+  location: 'global'
+}
+
+resource endpoint 'Microsoft.Cdn/profiles/afdEndpoints@2023-05-01' = {
+  parent: frontDoor
+  name: 'api-endpoint'
+  location: 'global'
+  properties: { enabledState: 'Enabled' }
+}
+
+resource originGroup 'Microsoft.Cdn/profiles/originGroups@2023-05-01' = {
+  parent: frontDoor
+  name: 'api-origins'
+  properties: {
+    loadBalancingSettings: {
+      sampleSize: 4
+      successfulSamplesRequired: 3
+    }
+    healthProbeSettings: {
+      probePath: '/health'
+      probeRequestType: 'HEAD'
+      probeProtocol: 'Https'
+      probeIntervalInSeconds: 30
+    }
+  }
+}
+```
+
+**Why:** Front Door provides global load balancing, WAF, SSL termination, and caching. Use Standard tier for static content caching, Premium tier for private link origins and advanced WAF rules.
+
+### Rule 30: Azure Service Bus vs. Event Grid Decision Matrix
+
+**Impact:** MEDIUM — Choosing the wrong messaging service leads to over-engineering or under-reliability.
+
+✅ **Decision guide:**
+```markdown
+| Scenario | Use | Why |
+|---|---|---|
+| Command/task queue (order processing) | Service Bus Queue | Guaranteed delivery, FIFO, dead-letter |
+| Publish/subscribe (notifications) | Service Bus Topic | Filtered subscriptions, sessions |
+| Event-driven react (blob created) | Event Grid | Push-based, serverless, low latency |
+| High-volume telemetry/logs | Event Hubs | Partitioned streaming, replay |
+| Simple webhook notifications | Event Grid | HTTP push, no polling |
+| Saga/workflow coordination | Service Bus + Sessions | Session-based message grouping |
+```
+
+**Why:** Service Bus = reliable messaging with transactions. Event Grid = reactive event routing. Event Hubs = high-throughput streaming. Don't use Service Bus for simple event notifications (Event Grid is cheaper and simpler). Don't use Event Grid for ordered processing (it doesn't guarantee order).
+
+### Rule 31: Budget Alerts and Cost Anomaly Detection
+
+**Impact:** MEDIUM — Unexpected cost spikes from misconfigured services or attacks go unnoticed without alerts.
+
+✅ **Correct:**
+```bicep
+resource budget 'Microsoft.Consumption/budgets@2023-11-01' = {
+  name: 'monthly-budget'
+  properties: {
+    category: 'Cost'
+    amount: 5000000  // ₩5,000,000 / month
+    timeGrain: 'Monthly'
+    timePeriod: {
+      startDate: '2026-04-01'
+      endDate: '2027-03-31'
+    }
+    notifications: {
+      '80Percent': {
+        enabled: true
+        operator: 'GreaterThan'
+        threshold: 80
+        contactEmails: ['ops@contoso.com']
+        thresholdType: 'Actual'
+      }
+      '100Percent': {
+        enabled: true
+        operator: 'GreaterThan'
+        threshold: 100
+        contactEmails: ['ops@contoso.com', 'finance@contoso.com']
+        thresholdType: 'Actual'
+      }
+      'Forecast120': {
+        enabled: true
+        operator: 'GreaterThan'
+        threshold: 120
+        contactEmails: ['ops@contoso.com']
+        thresholdType: 'Forecasted'  // Alert on projected overspend
+      }
+    }
+  }
+}
+```
+
+**Why:** Set budget alerts at 80%, 100% actual and 120% forecasted. Enable Azure Cost Management anomaly detection for automatic alerts on unusual spending patterns.
 
 ---
 

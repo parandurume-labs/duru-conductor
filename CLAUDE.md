@@ -6,9 +6,13 @@ This file helps Claude Code discover available skills. Each skill's full content
 
 | Skill | Command | Description |
 |---|---|---|
+| azure-ai-foundry | /azure-ai-foundry | Azure AI Foundry and Azure OpenAI best practices. Use when building AI applications with Azure AI Foundry (formerly A... |
 | azure-best-practices | /azure-best-practices | Azure cloud architecture and deployment best practices. Use when building, deploying, or configuring Azure services i... |
+| azure-security-audit | /azure-security-audit | Azure security audit and hardening patterns. Use when auditing Azure infrastructure security, migrating Key Vault acc... |
 | careful | /careful | Safety guardrails that warn before destructive commands. Use to protect beginners from accidentally running dangerous... |
 | conductor | /conductor | Universal project orchestrator for any type of project. Use this skill when starting a new project, planning work, or... |
+| korean-compliance | /korean-compliance | 한국 규정 준수 및 개인정보보호 패턴. KISA ISMS-P 인증, 개인정보보호법(PIPA 2024), 한국표준시(KST) 처리, 한국어 사용자 인터페이스 패턴, NIA AI 윤리 가이드라인을 적용할 때 사용합... |
+| m365-copilot-extensions | /m365-copilot-extensions | Microsoft 365 Copilot extension development patterns. Use when building declarative agents, API plugins, Graph connec... |
 | m365-workflows | /m365-workflows | Microsoft 365 integration patterns for Teams, SharePoint, and Outlook automation. Use when building Teams bots, sendi... |
 | retro | /retro | Standalone retrospective for any completed project or work session. Use when the user wants to reflect on what went w... |
 | review | /review | Post-build quality review for any project type. Use when you want a staff-level review of completed work — code quali... |
@@ -31,9 +35,13 @@ Invoke any skill by typing its command (e.g., `/conductor`) in your AI coding ag
 
 ## Skill Files
 
+- `skills/azure-ai-foundry/SKILL.md`
 - `skills/azure-best-practices/SKILL.md`
+- `skills/azure-security-audit/SKILL.md`
 - `skills/careful/SKILL.md`
 - `skills/conductor/SKILL.md`
+- `skills/korean-compliance/SKILL.md`
+- `skills/m365-copilot-extensions/SKILL.md`
 - `skills/m365-workflows/SKILL.md`
 - `skills/retro/SKILL.md`
 - `skills/review/SKILL.md`

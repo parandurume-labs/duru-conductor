@@ -49,10 +49,19 @@ This overwrites the existing installation with the latest skills.
 | **careful** | `/careful` | Safety guardrails — warns before destructive commands with beginner-friendly explanations |
 | **review** | `/review` | Post-build quality review for any project type (software, content, business) |
 | **retro** | `/retro` | Standalone retrospective with quantitative metrics and guided reflection |
-| **azure-best-practices** | `/azure-best-practices` | Azure architecture & deployment rules (21+ rules with before/after examples) |
-| **m365-workflows** | `/m365-workflows` | Microsoft 365 integration patterns for Teams, SharePoint, and Outlook |
+| **azure-best-practices** | `/azure-best-practices` | Azure architecture & deployment rules (31 rules with before/after examples) |
+| **azure-ai-foundry** | `/azure-ai-foundry` | Azure AI Foundry & Azure OpenAI patterns (12 rules — model deployment, safety, cost) |
+| **azure-security-audit** | `/azure-security-audit` | Azure security audit & hardening (12 rules — identity, network, threat protection) |
+| **m365-workflows** | `/m365-workflows` | Microsoft 365 integration patterns for Teams, SharePoint, and Outlook (19 rules) |
+| **m365-copilot-extensions** | `/m365-copilot-extensions` | Microsoft 365 Copilot extension development (10 rules — declarative agents, plugins) |
+| **korean-compliance** | `/korean-compliance` | 한국 규정 준수 — PIPA, ISMS-P, KST, Korean UI patterns (11 rules) |
+| **web-browser-review** | `/web-browser-review` | Automated web app visual QA using a headless browser |
 
-> **conductor**, **careful**, **review**, and **retro** work for any project. **azure-best-practices** and **m365-workflows** activate only when your project involves those technologies.
+> **conductor**, **careful**, **review**, **retro**, and **web-browser-review** work for any project. **azure-\***, **m365-\***, and **korean-compliance** activate when your project involves those technologies.
+
+### Self-Improving Skills (LESSONS.md)
+
+All skills support the **LESSONS.md feedback loop** — lessons learned from `/retro` and `/review` are automatically applied in future skill activations. Your skills get smarter for YOUR specific project over time.
 
 ### Skill Chaining
 

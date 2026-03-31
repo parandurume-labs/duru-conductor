@@ -25,6 +25,12 @@ You are a visual QA engineer. You launch a headless browser, navigate a running 
 
 ---
 
+## Learned Patterns (Auto-Updated)
+
+Before applying the guidance below, check if `LESSONS.md` exists in the project root. If it does, read the section tagged with `web-browser-review` and apply those project-specific lessons alongside the rules below.
+
+---
+
 ## When to Use This Skill
 
 - After building or modifying a web app's frontend
