@@ -357,6 +357,49 @@ Retro will gather metrics, ask you reflection questions, and produce a document 
 
 ---
 
+## Upgrading from conductor
+
+If you previously installed `parandurume-labs/conductor`, follow these steps to upgrade to `duru-skills`:
+
+### Step 1: Remove the old conductor skills
+
+```bash
+# macOS/Linux:
+rm -rf .agents/skills/conductor .agents/skills/azure-best-practices \
+       .agents/skills/m365-workflows .agents/skills/careful \
+       .agents/skills/review .agents/skills/retro .agents/skills/web-browser-review
+
+# Windows (PowerShell):
+Remove-Item -Recurse -Force .agents\skills\conductor, `
+  .agents\skills\azure-best-practices, .agents\skills\m365-workflows, `
+  .agents\skills\careful, .agents\skills\review, .agents\skills\retro, `
+  .agents\skills\web-browser-review
+```
+
+### Step 2: Install duru-skills
+
+```bash
+npx skills add parandurume-labs/duru-skills
+```
+
+This installs all 11 skills — the original 7 (upgraded) plus 4 new ones (`azure-ai-foundry`, `azure-security-audit`, `m365-copilot-extensions`, `korean-compliance`).
+
+### Step 3: Update your commands
+
+| Old Command | New Command |
+|---|---|
+| `/conductor` | `/duru-conductor` |
+
+All other skill commands (`/careful`, `/review`, `/retro`, etc.) remain the same.
+
+### Step 4: Verify
+
+Type `/duru-conductor` in your AI coding agent. If it responds with the intake flow, you're all set.
+
+> **Note:** Your existing project artifacts (`INTAKE.md`, `ARCHITECTURE.md`, `BUILD-LOG.md`, `RETROSPECTIVE.md`) are fully compatible — Duru-Conductor reads the same artifact format.
+
+---
+
 ## Tips for Getting the Most Out of Duru-Conductor
 
 1. **Be honest about what you don't know.** "I don't know" is a great answer — Duru-Conductor picks a sensible default and moves on.

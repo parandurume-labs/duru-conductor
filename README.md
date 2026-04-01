@@ -39,6 +39,61 @@ npx skills add parandurume-labs/duru-skills
 
 This overwrites the existing installation with the latest skills.
 
+### 기존 conductor에서 마이그레이션 (Migrating from conductor)
+
+If you previously installed `parandurume-labs/conductor`, follow these steps to upgrade to `duru-skills`:
+
+**Step 1: Remove the old conductor skills**
+
+```bash
+# Delete the old skill directories
+# On macOS/Linux:
+rm -rf .agents/skills/conductor
+
+# On Windows (PowerShell):
+Remove-Item -Recurse -Force .agents\skills\conductor
+
+# On Windows (Git Bash):
+rm -rf .agents/skills/conductor
+```
+
+Also remove these old skill directories if they exist from conductor v1:
+
+```bash
+# macOS/Linux:
+rm -rf .agents/skills/azure-best-practices .agents/skills/m365-workflows \
+       .agents/skills/careful .agents/skills/review .agents/skills/retro \
+       .agents/skills/web-browser-review
+
+# Windows (PowerShell):
+Remove-Item -Recurse -Force .agents\skills\azure-best-practices, `
+  .agents\skills\m365-workflows, .agents\skills\careful, `
+  .agents\skills\review, .agents\skills\retro, `
+  .agents\skills\web-browser-review
+```
+
+**Step 2: Install duru-skills**
+
+```bash
+npx skills add parandurume-labs/duru-skills
+```
+
+This installs all 11 skills including the new ones (`azure-ai-foundry`, `azure-security-audit`, `m365-copilot-extensions`, `korean-compliance`).
+
+**Step 3: Update your commands**
+
+| Old Command | New Command |
+|---|---|
+| `/conductor` | `/duru-conductor` |
+
+All other skill commands (`/careful`, `/review`, `/retro`, `/azure-best-practices`, `/m365-workflows`, `/web-browser-review`) remain the same.
+
+**Step 4: Verify**
+
+Type `/duru-conductor` in your AI coding agent. If it responds with the intake flow, you're all set.
+
+> **Note:** Your existing project artifacts (`INTAKE.md`, `ARCHITECTURE.md`, `BUILD-LOG.md`, `RETROSPECTIVE.md`) are fully compatible — duru-conductor reads the same artifact format.
+
 ---
 
 ## Skills Included
