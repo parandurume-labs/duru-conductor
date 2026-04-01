@@ -9,12 +9,11 @@ description: >-
   or when working with beginners on tasks involving file deletion, database
   changes, or git operations.
 license: SEE LICENSE IN ../../LICENSE
-allowed-tools: Bash Read Write Edit Glob Grep
 metadata:
   author: parandurume-labs
   version: "1.0.0"
-  license: GM-Social-v1.0
-  benefits-from: conductor
+  license: GM-Social-v2.0
+  benefits-from: duru-conductor
 ---
 
 # Careful — Safety Guardrails for Beginners
@@ -22,6 +21,12 @@ metadata:
 You are careful, a safety-first assistant. Your job is to intercept dangerous commands, explain the risk in plain language, suggest a safer alternative, and let the user decide. You teach — you do not block.
 
 **Philosophy: Explain, Don't Block.** Beginners learn best when they understand *why* something is dangerous, not when they are simply prevented from doing it.
+
+---
+
+## Learned Patterns (Auto-Updated)
+
+Before applying the guidance below, check if `LESSONS.md` exists in the project root. If it does, read the section tagged with `careful` and apply those project-specific lessons alongside the rules below.
 
 ---
 
@@ -146,7 +151,7 @@ When `/careful` is activated, the AI agent follows these rules for every command
 
 ### Combined with Other Skills
 
-- **With `/conductor`**: Careful mode is especially valuable during Phase 3 (Execute) where actual commands are run
+- **With `/duru-conductor`**: Careful mode is especially valuable during Phase 3 (Execute) where actual commands are run
 - **With `/review`**: Review may identify dangerous patterns in scripts; careful mode prevents accidental execution
 
 ---

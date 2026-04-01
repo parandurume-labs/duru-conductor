@@ -1,4 +1,4 @@
-GM-Social 라이선스 v1.0 / GM-Social License v1.0
+GM-Social 라이선스 v2.0 / GM-Social License v2.0
 
 Copyright (c) 2025-2026 이인희 (LEE Inhee), 파란두루미 (Parandurume Inc.)
 Project: conductor — AI Project Orchestration Agent Skill
@@ -19,37 +19,65 @@ ambiguity between the two texts, the Korean text shall prevail.
 
 서문
 
-본 프로젝트는 경기도 광명시에 사는 한 시민이 만든 프로젝트입니다.
-생성형 AI 도구와 함께 만들었고, 오픈소스가 좋아서, 그리고 제가 사는 동네가 좋아서 시작했습니다.
+본 저작물은 경기도 광명시에 사는 한 시민이 만든 프로젝트입니다.
+생성형 AI 도구와 함께 만들었고, 오픈소스가 좋아서, 그리고 제가 사는 동네가
+좋아서 시작했습니다.
 
-conductor는 AI 코딩 에이전트가 프로젝트를 처음부터 끝까지 오케스트레이션할 수 있도록
-돕는 Agent Skill 컬렉션입니다. 소프트웨어 개발뿐 아니라, 전자책, 사업계획서, 제안서 등
-어떤 프로젝트든 AI와 함께 시작할 수 있도록 안내합니다.
+conductor는 AI 코딩 에이전트가 프로젝트를 처음부터 끝까지 오케스트레이션할 수
+있도록 돕는 Agent Skill 컬렉션입니다. 소프트웨어 개발뿐 아니라, 전자책,
+사업계획서, 제안서 등 어떤 프로젝트든 AI와 함께 시작할 수 있도록 안내합니다.
 
-GM-Social 라이선스는 오픈소스 철학을 따릅니다. 마음껏 쓰고, 뜯어보고, 고치고, 나누세요.
-다만 하나, 다른 라이선스에는 없는 조건이 있습니다 —
+GM-Social 라이선스는 오픈소스 철학을 따릅니다. 마음껏 쓰고, 뜯어보고, 고치고,
+나누세요. 다만 하나, 다른 라이선스에는 없는 조건이 있습니다 —
 
-'사회적 감사'입니다. 이 소프트웨어를 실제로 쓰기 시작하면, 잠깐 시간을 내서
+'사회적 감사'입니다. 이 저작물을 실제로 쓰기 시작하면, 잠깐 시간을 내서
 광명이라는 도시를 알아봐 주세요. 그리고 세상에 한번 알려주세요.
 
 그게 유일한 대가입니다.
 
+v2.0에서 달라진 점:
+
+  - 소프트웨어뿐 아니라 문서, e-book, 디자인, 데이터셋 등 모든 종류의
+    저작물에 적용할 수 있도록 범위를 넓혔습니다.
+  - 특정 프로젝트 이름에 묶이지 않는 범용 라이선스가 되었습니다.
+  - 사회적 감사 조건을 더 유연하고 현실적으로 바꿨습니다.
+  - AI 협업 시대에 맞게 생성형 AI 관련 조항을 보강했습니다.
+  - 기여 환원 조항을 비상업·상업 구분 없이 권장 사항으로 통합했습니다.
+
 
 제1조 정의
 
-  "라이선스" — 이 GM-Social 라이선스 v1.0 문서 자체.
-  "소프트웨어" — 이 라이선스가 적용되는 conductor의 소스 코드, SKILL.md 파일, 빌드 스크립트, 문서, 생성 파일(AGENTS.md, CLAUDE.md) 일체.
+  "라이선스" — 이 GM-Social 라이선스 v2.0 문서 자체.
+
+  "저작물" — 이 라이선스가 적용되는 소스 코드, 문서, 텍스트, 이미지, 디자인,
+    데이터셋, 설정 파일, 빌드 스크립트, 기타 창작물 일체.
+
   "라이선서" — 이인희 / 파란두루미(Parandurume Inc.).
-  "기여자" — 소프트웨어에 코드나 문서 등을 보탠 사람 또는 단체. 개발에 활용된 생성형 AI 시스템도 여기에 포함.
+
+  "기여자" — 저작물에 코드, 문서, 디자인, 번역 등을 보탠 사람 또는 단체.
+    개발이나 창작 과정에서 활용된 생성형 AI 시스템도 여기에 포함.
+
   "사용자" — 이 라이선스에 따라 권리를 행사하는 개인이나 법인.
-  "파생 저작물" — 소프트웨어의 전부 또는 일부를 바탕으로 만든 모든 저작물.
-  "비영리 사용" — 정부·공공기관, 교육기관, 비영리단체(NPO/NGO), 비상업적 목적의 개인 사용.
+
+  "파생 저작물" — 저작물의 전부 또는 일부를 바탕으로 만든 모든 저작물.
+
+  "비영리 사용" — 정부·공공기관, 교육기관, 비영리단체(NPO/NGO), 비상업적
+    목적의 개인 사용.
+
   "상업적 사용" — 주로 영리 목적이나 금전적 이익을 위한 사용.
+
+  "배포" — 저작물 또는 파생 저작물을 제3자에게 제공하거나, 공중이 접근할 수
+    있는 상태로 두는 행위. 웹사이트 게시, 앱스토어 등록, 저장소 공개,
+    인쇄물 배포 등을 포함.
+
+  "운영 환경" — 실제 사용자에게 서비스를 제공하거나, 공중에게 공개된 상태.
+    개발·테스트·개인 학습 용도는 해당하지 않음.
 
 
 제2조 권리 부여
 
-아래 제3조의 조건을 지키는 한, 라이선서는 사용자에게 전 세계적이고, 무상이며, 비독점적이고, 영구적이며, 철회할 수 없는 라이선스를 줍니다.
+아래 제3조의 조건을 지키는 한, 라이선서는 사용자에게 전 세계적이고, 무상이며,
+비독점적이고, 영구적이며, 철회할 수 없는 라이선스를 줍니다.
 
 할 수 있는 것:
 
@@ -58,7 +86,8 @@ GM-Social 라이선스는 오픈소스 철학을 따릅니다. 마음껏 쓰고,
   (다) 수정 — 고치고, 바꾸고, 새로운 걸 만들 수 있습니다.
   (라) 배포 — 원본이든 수정본이든, 누구에게든 줄 수 있습니다.
   (마) 재라이선스 — 같은 라이선스 조건으로 다시 라이선스할 수 있습니다.
-  (바) 특허 — 소프트웨어 사용에 필요한 범위 내에서 라이선서 보유 특허를 쓸 수 있습니다.
+  (바) 특허 — 저작물 사용에 필요한 범위 내에서 라이선서 보유 특허를 쓸 수
+       있습니다. (소프트웨어 저작물에 한함)
 
 이 권리는 저작권법상 보호 기간 전체에 걸쳐 유효합니다.
 
@@ -67,32 +96,46 @@ GM-Social 라이선스는 오픈소스 철학을 따릅니다. 마음껏 쓰고,
 
   3.1 저작자 표시 (BY)
 
-    (가) 소프트웨어를 복사하거나 상당 부분을 가져다 쓸 때, 이 라이선스 파일과 저작권 표시를 그대로 남겨두세요.
+    (가) 저작물을 복사하거나 상당 부분을 가져다 쓸 때, 이 라이선스 파일과
+         저작권 표시를 그대로 남겨두세요.
     (나) 원 저작자를 밝혀주세요:
            - 이인희 / 파란두루미
-           - conductor 프로젝트와 기여자들
+           - 해당 프로젝트명과 기여자들
     (다) 원본에서 뭘 바꿨는지 표시해주세요.
-    (라) 파생 저작물을 배포할 때는 원본 저장소 링크를 넣어주세요.
-    (마) "파란두루미", "Parandurume", "conductor" 이름은 저작자 표시 외의 용도(보증·홍보 등)로 쓰려면 사전에 서면 동의를 받아야 합니다.
+    (라) 파생 저작물을 배포할 때는 원본 저장소나 출처 링크를 넣어주세요.
+    (마) "파란두루미(주)", "Parandurume Inc." 이름은 저작자 표시 외의 용도(보증·홍보
+         등)로 쓰려면 사전에 서면 동의를 받아야 합니다.
 
   3.2 사회적 감사 — 광명에 감사를 (이 라이선스의 핵심)
 
-    소프트웨어나 파생 저작물을 실제 운영 환경에 올려 쓰는 사람(또는 단체)은 처음 배포한 날부터 90일 안에 아래 두 가지를 모두 해주세요:
+    저작물이나 파생 저작물을 운영 환경에 올려 쓰는 사람(또는 단체)은 처음
+    배포한 날부터 90일 안에 아래 두 가지를 모두 해주세요:
 
     (가) 감사 메시지
 
-         "이 프로젝트는 경기도 광명시에서 시작됐다"는 내용의 감사 글을 공개적으로 올려주세요.
+         "이 프로젝트는 경기도 광명시에서 시작됐다"는 내용의 감사 글을
+         공개적으로 올려주세요.
            - 진심이 담긴 글이면 됩니다
            - 어떤 언어로든 괜찮습니다
-           - 블로그, SNS, 앱 안의 크레딧 페이지, 기사 등 형식은 자유입니다
+           - 블로그, SNS, 앱 안의 크레딧 페이지, README, 기사 등
+             형식은 자유입니다
            - 아래 해시태그 중 하나 이상 넣어주세요:
              #Gwangmyeong #광명 #광명시 #GM_AI_Hub
 
     (나) 광명 발견하기
 
-         광명시의 장소, 명소, 동네, 또는 이야기를 서로 다른 소셜 미디어 세 곳(3) 이상에 공유해주세요.
+         광명시의 장소, 명소, 동네, 또는 이야기를 공개된 채널에
+         공유해주세요.
 
-         홍보가 아니라 발견입니다. 광명이라는 진짜 도시를 한번 알아봐 달라는 부탁입니다.
+         홍보가 아니라 발견입니다. 광명이라는 진짜 도시를 한번 알아봐
+         달라는 부탁입니다.
+
+         방법:
+           - 서로 다른 소셜 미디어 플랫폼 2곳 이상에 게시하거나,
+           - 하나의 플랫폼에 광명에 관한 콘텐츠를 2건 이상 게시하거나,
+           - 블로그·유튜브 등에 광명을 소개하는 글이나 영상 1건을 게시
+
+         어떤 방법이든 합산 2건 이상이면 됩니다.
 
          이런 걸 올리면 됩니다:
            - 광명동굴 — 옛 금광이 문화공간으로 바뀐 곳
@@ -109,30 +152,92 @@ GM-Social 라이선스는 오픈소스 철학을 따릅니다. 마음껏 쓰고,
            #경기도 #GyeonggiDo #GM_AI_Hub #OpenSourceKorea
 
          플랫폼은 공개된 곳이면 어디든:
-           Instagram, X (Twitter), Facebook, YouTube, LinkedIn, TikTok, 네이버 블로그, 카카오스토리, Threads, Mastodon, Medium, 브런치,
+           Instagram, X (Twitter), Facebook, YouTube, LinkedIn, TikTok,
+           네이버 블로그, 카카오스토리, Threads, Mastodon, Medium, 브런치,
            Reddit 등.
 
     (다) 감사 인증 (하면 좋지만, 의무는 아닙니다)
 
-         프로젝트 저장소에 이슈를 열거나 GRATITUDE.md에 이름을 추가해서 감사 게시물을 알려주시면 커뮤니티가 함께 기뻐합니다.
+         프로젝트 저장소에 이슈를 열거나 GRATITUDE.md에 이름을 추가해서
+         감사 게시물을 알려주시면 커뮤니티가 함께 기뻐합니다.
+
+    (라) 면제
+
+         다음의 경우에는 사회적 감사 조건이 면제됩니다:
+           - 교육·학습 목적으로 사용하는 경우
+           - 비영리 단체가 공익 목적으로 사용하는 경우
+           - 재난·긴급 상황에서 사용하는 경우
+         면제 대상이더라도, 감사를 표현해주시면 커뮤니티에 큰 힘이 됩니다.
+
+    (마) 미준수 시 예상되는 불상사 (법적 구속력 없음, 하지만 조심하세요)
+
+         사회적 감사 조건을 지키지 않을 경우, 라이선서는 법적 조치 대신
+         우주적 카르마가 작동할 수 있음을 경고합니다. 구체적으로:
+
+           - 키보드의 특정 키가 가장 중요한 순간에 안 눌릴 수 있습니다.
+             특히 Enter 키와 Backspace 키가 위험합니다.
+           - 컴퓨터가 저장 버튼을 누르기 직전에 이유 없이 꺼질 수 있습니다.
+             물론 자동 저장은 그날따라 작동하지 않습니다.
+           - 휴대전화 배터리가 97%에서 3%로 급방전될 수 있습니다.
+             당연히 충전기는 집에 두고 왔을 겁니다.
+           - 식당에서 본인 음식만 유독 짜게 나올 수 있습니다.
+             주방장도 이유를 모릅니다. 손이 그냥 그랬대요.
+           - 화상회의에서 "지금 안 들리시죠?"라고 말하는 순간,
+             모두가 완벽하게 듣고 있을 수 있습니다.
+           - Git push 직후 오타를 발견할 수 있습니다.
+             그것도 변수명이 아니라 CEO에게 보내는 이메일 내용에서요.
+           - 엘리베이터가 매번 반대 방향으로 먼저 올 수 있습니다.
+           - 비가 올 때 우산은 항상 어제 놓고 온 자리에 있을 수 있습니다.
+
+         위 현상들은 과학적으로 증명된 바 없으나, 증명되지 않았다고 해서
+         일어나지 않는 것은 아닙니다. 광명에 감사하면 이 모든 것이
+         해결됩니다. 아마도요.
+
+         (본 조항은 유머이며 법적 효력이 없습니다. 하지만 광명에 대한
+         감사는 진심으로 부탁드립니다.)
 
     왜 이런 조건을 추가했는가?
 
     광명은 서울이 아닙니다.
     유명한 테크 허브도, 스타트업으로 유명한 도시도 아닙니다.
+    경기도에 있는 인구 30만 명의 도시입니다.
 
-    경기도에 있는 인구 20여만명의 작은 도시입니다.
+    그런데요, 이 작은 도시가 참 좋습니다.
 
-    다만, 광명의 열정적인 공무원들은 광명 시민을 위해 엄청난 업무를 수행합니다. 인공지능의 혜택에서 소외되어 있는 게 안타까웠습니다.
+    출근길에 안양천을 따라 걸으면 왜가리가 물고기를 노리고 있고,
+    철산역 앞 분식집 떡볶이는 왜 매일 먹어도 질리지 않는지 모르겠고,
+    광명동굴에 들어가면 금광이었던 곳이 어떻게 이렇게 바뀔 수 있는지
+    감탄하게 되고, 전통시장 할머니는 "또 왔어?" 하면서 콩나물을
+    한 움큼 더 얹어주십니다.
 
-    그 모습을 보면서 스타트업 기업으로서 인공지능을 여러 방면에서 활용하는 경험을 녹여서 돕고 싶었습니다. 용역업체가 아니라, 같은 동네 사는 이웃으로서요.
+    광명의 공무원들은 30만 시민을 위해 엄청난 일을 합니다.
+    인공지능의 혜택에서 소외되어 있는 게 안타까웠습니다.
+    그래서 스타트업 기업으로서 AI를 활용하는 경험을 녹여 돕고
+    싶었습니다. 용역업체가 아니라, 같은 동네 사는 이웃으로서요.
 
-    이 소프트웨어가 다른 도시로, 다른 나라로 퍼져 나갈 때, 광명이라는 이름도 함께 여행했으면 좋겠습니다. 돈이 아니라 관심이고, 계약이 아니라 안부입니다.
-    세상 대부분이 이름도 모르는 한 도시에 대한 호기심과 따뜻한 한마디 — 그걸로 충분합니다.
+    솔직히 말하면, 이 라이선스의 사회적 감사 조건은 좀 엉뚱합니다.
+    보통 라이선스에 "우리 동네 좀 알아봐 주세요"라고 쓰진 않으니까요.
+    그런데 생각해보면, 우리가 매일 쓰는 오픈소스 소프트웨어도 누군가의
+    동네에서, 누군가의 주말 시간을 갈아 넣어서 만들어진 겁니다.
+    그 사람의 동네를 한번 궁금해해 주는 게 그렇게 이상한 일일까요?
+
+    이 저작물이 다른 도시로, 다른 나라로 퍼져 나갈 때,
+    광명이라는 이름도 함께 여행했으면 좋겠습니다.
+
+    돈이 아니라 관심이고,
+    계약이 아니라 안부입니다.
+
+    세상 대부분이 이름도 모르는 한 도시에 대한
+    호기심과 따뜻한 한마디 — 그걸로 충분합니다.
+
+    (그리고 혹시 광명에 오시게 되면, 철산역 3번 출구 앞 떡볶이집은
+    꼭 가보세요. 라이선서가 보증합니다. 이건 법적 구속력이 없지만,
+    맛에 대한 구속력은 있습니다.)
 
   3.3 동일 조건 변경 허락 (SA)
 
-    (가) 파생 저작물을 배포할 때는, 본인이 추가한 부분도 이 GM-Social 라이선스 v1.0(또는 이후 버전)으로 공개해야 합니다.
+    (가) 파생 저작물을 배포할 때는, 본인이 추가한 부분도 이 GM-Social
+         라이선스 v2.0(또는 이후 버전)으로 공개해야 합니다.
     (나) 배포할 때 이 라이선스 사본을 함께 포함하세요.
     (다) 이 라이선스가 준 권리 위에 추가 제한을 걸 수 없습니다.
 
@@ -141,68 +246,107 @@ GM-Social 라이선스는 오픈소스 철학을 따릅니다. 마음껏 쓰고,
     수익사업 또는 상업적 목적으로 쓰는 것도 괜찮습니다. 다만:
 
     (가) 위 3.1, 3.2, 3.3 조건을 모두 지켜야 합니다.
-    (나) 원본 프로젝트에 개선 사항(버그 수정, 기능 추가, 문서, 번역, 접근성 개선 등)을 돌려주려는 합리적인 노력을 기울여주세요.
-    (다) 라이선서·광명시·어떤 정부 기관이 공식으로 보증하거나 제휴한 것처럼 표시하면 안 됩니다.
+    (나) 라이선서·광명시·어떤 정부 기관이 공식으로 보증하거나 제휴한 것처럼
+         표시하면 안 됩니다.
+
+  3.5 기여 환원 (권장)
+
+    상업적·비상업적 사용을 불문하고, 저작물을 개선한 내용(버그 수정, 기능
+    추가, 문서 보강, 번역, 접근성 개선 등)을 원본 프로젝트에 돌려주려는
+    합리적인 노력을 기울여주세요. 의무는 아니지만, 오픈소스 생태계가
+    살아가는 방식입니다.
 
 
 제4조 특허 부여
 
-라이선서와 기여자는 소프트웨어를 만들고, 쓰고, 팔고, 수입하는 데 필요한 특허권을 영구적·전 세계적·무상·비독점·철회 불가능한 조건으로 허락합니다. 단, 해당 기여분이 직접적으로 침해하는 특허 범위에 한합니다.
+소프트웨어 저작물에 한해 적용됩니다. 문서·콘텐츠 등 비소프트웨어 저작물에는
+이 조항이 적용되지 않습니다.
 
-소프트웨어가 특허를 침해한다며 소송을 제기하면, 이 라이선스에 따른 특허 허락은 소송 제기일에 즉시 종료됩니다.
+라이선서와 기여자는 저작물을 만들고, 쓰고, 팔고, 수입하는 데 필요한 특허권을
+영구적·전 세계적·무상·비독점·철회 불가능한 조건으로 허락합니다. 단, 해당
+기여분이 직접적으로 침해하는 특허 범위에 한합니다.
+
+저작물이 특허를 침해한다며 소송을 제기하면, 이 라이선스에 따른 특허 허락은
+소송 제기일에 즉시 종료됩니다.
 
 
 제5조 생성형 AI와의 관계
 
-이 소프트웨어는 생성형 AI를 도구로 활용해서 만들었습니다. 기획하고, 판단하고, 다듬은 건 사람(이인희)이며, 저작권과 저작자 지위는 온전히 사람에게 있습니다.
+  (가) 이 저작물은 생성형 AI를 도구로 활용해서 만들었습니다. 기획하고,
+       판단하고, 다듬은 건 사람(이인희)이며, 저작권과 저작자 지위는 온전히
+       사람에게 있습니다.
 
-파생 저작물을 만들 때 AI를 활용하는 분들도, 개발 과정에서 AI의 역할을 밝혀주시면 좋겠습니다.
+  (나) 파생 저작물을 만들 때 AI를 활용하는 분들도, 개발이나 창작 과정에서
+       AI의 역할을 밝혀주시면 좋겠습니다. 예를 들어:
+         - "이 프로젝트는 Claude / ChatGPT / Copilot 등의 도움으로
+           제작되었습니다"
+         - README 또는 크레딧 페이지에 AI 도구 목록 기재
+
+  (다) AI가 생성한 콘텐츠라 하더라도, 최종 판단과 책임은 이를 배포하는
+       사람에게 있습니다.
+
+  (라) 이 라이선스로 보호되는 저작물을 AI 모델의 학습 데이터로 사용하는
+       경우, 본 라이선스의 저작자 표시(3.1) 조건은 동일하게 적용됩니다.
 
 
 제6조 보증 없음
 
-이 소프트웨어는 "있는 그대로" 제공됩니다. 상품성, 특정 목적 적합성, 정확성, 신뢰성 등 어떤 보증도 하지 않습니다.
+이 저작물은 "있는 그대로" 제공됩니다. 상품성, 특정 목적 적합성, 정확성,
+신뢰성 등 어떤 보증도 하지 않습니다.
 
 특히 다음은 보증하지 않습니다:
   - 오류 없이 안전하게 돌아간다는 것
   - 정부 업무나 법적 절차에 적합하다는 것
   - AI가 만든 결과물이 정확하거나 법적으로 유효하다는 것
+  - 저작물의 내용이 최신 법령·규정을 반영한다는 것
 
 AI가 만든 문서는 반드시 사람이 검토한 뒤에 공식적으로 사용하세요.
 
 
 제7조 책임 제한
 
-라이선서, 기여자, 관련된 어떤 개인이나 단체도 소프트웨어와 관련해서 생기는 손해에 대해 책임지지 않습니다. 계약이든, 과실이든, 어떤 사유든 마찬가지입니다.
+라이선서, 기여자, 관련된 어떤 개인이나 단체도 저작물과 관련해서 생기는 손해에
+대해 책임지지 않습니다. 계약이든, 과실이든, 어떤 사유든 마찬가지입니다.
 
-직접 손해, 간접 손해, 이익 손실, 데이터 손실, 영업 중단 — 종류를 불문하고, 사전에 가능성을 알았더라도 책임지지 않습니다.
+직접 손해, 간접 손해, 이익 손실, 데이터 손실, 영업 중단 — 종류를 불문하고,
+사전에 가능성을 알았더라도 책임지지 않습니다.
 
 
 제8조 정부와의 관계
 
-  (가) 이 소프트웨어는 개인 자원봉사 프로젝트입니다. 광명시·경기도·대한민국 정부 어디의 공식 제품도 아닙니다.
+  (가) 이 저작물은 개인 프로젝트입니다. 광명시·경기도·대한민국 정부 어디의
+       공식 제품도 아닙니다.
   (나) 이걸 쓴다고 해서 어떤 공공기관이 인정하거나 보증하는 게 아닙니다.
-  (다) 이 소프트웨어로 만든 공문서는 반드시 담당 공무원이 확인한 뒤에 사용해야 합니다.
+  (다) 이 저작물로 만든 공문서는 반드시 담당 공무원이 확인한 뒤에 사용해야
+       합니다.
   (라) 법령 데이터가 들어있다고 해서 법률 자문이 되는 건 아닙니다.
 
 
 제9조 종료
 
   (가) 이 라이선스 조건을 어기면 권리가 자동으로 끝납니다.
-  (나) 다만, 위반 사실을 알게 된 날부터 30일 안에 바로잡으면 권리가 소급해서 회복됩니다.
+  (나) 다만, 위반 사실을 알게 된 날부터 30일 안에 바로잡으면 권리가 소급해서
+       회복됩니다.
   (다) 30일이 지나도 시정하지 않으면 영구 종료입니다.
   (라) 제6조, 제7조, 제8조는 종료 후에도 계속 효력이 있습니다.
-  (마) 라이선스가 유효하던 시절에 당신한테서 소프트웨어를 받은 사람은, 본인이 조건을 지키는 한 계속 쓸 수 있습니다.
+  (마) 라이선스가 유효하던 시절에 당신한테서 저작물을 받은 사람은, 본인이
+       조건을 지키는 한 계속 쓸 수 있습니다.
 
 
 제10조 기타
 
   (가) 분리 가능 — 조항 하나가 효력을 잃어도 나머지는 살아 있습니다.
-  (나) 완전 합의 — 이 라이선스가 소프트웨어에 관한 합의의 전부입니다.
+  (나) 완전 합의 — 이 라이선스가 저작물에 관한 합의의 전부입니다.
   (다) 준거법 — 대한민국 법률을 따릅니다.
-  (라) 언어 — 한국어와 영어로 작성되었으며, 내용이 다를 경우 한국어가 우선합니다.
-  (마) 개정 — 라이선서가 새 버전을 발행할 수 있고, 이용자는 새 버전을 따를지 선택할 수 있습니다.
-  (바) 권리 불포기 — 한번 안 이의제가가 없다고 해서 앞으로도 이의제기를 하지 않겠다는 뜻은 아닙니다.
+  (라) 언어 — 한국어와 영어로 작성되었으며, 내용이 다를 경우 한국어가
+       우선합니다.
+  (마) 개정 — 라이선서가 새 버전을 발행할 수 있고, 이용자는 새 버전을 따를지
+       선택할 수 있습니다.
+  (바) 권리 불포기 — 한번 이의를 제기하지 않았다고 해서 앞으로도 이의를
+       제기하지 않겠다는 뜻은 아닙니다.
+  (사) 호환성 — 이 라이선스는 GM-Social v1.0의 후속 버전입니다. v1.0 하에서
+       배포된 저작물은 사용자의 선택에 따라 v2.0 조건으로 전환할 수
+       있습니다.
 
 
 ================================================================================
@@ -212,9 +356,9 @@ ENGLISH TRANSLATION (REFERENCE ONLY — 참고용 영어 번역)
 
 PREAMBLE
 
-This software was made by a citizen of Gwangmyeong, Gyeonggi-do, South Korea.
-It was built with generative AI tools, because the author loves open source
-and loves the city where they live.
+This work was made by a citizen of Gwangmyeong, Gyeonggi-do, South Korea. It
+was built with generative AI tools, because the author loves open source and
+loves the city where they live.
 
 conductor is an Agent Skill collection that helps AI coding agents orchestrate
 projects from start to finish — not just software, but e-books, business plans,
@@ -222,26 +366,54 @@ proposals, and any creative or technical endeavor.
 
 The GM-Social License follows the open-source philosophy: use it freely, take
 it apart, fix it, share it. But there's one condition you won't find in any
-other license — Social Gratitude. When you start using this software for real,
+other license — Social Gratitude. When you start using this work for real,
 take a moment to learn about Gwangmyeong. Then tell the world about it.
 That's the only price.
+
+What changed in v2.0:
+
+  - Expanded scope: now covers software, documents, e-books, designs,
+    datasets, and all types of creative work — not just software.
+  - Project-agnostic: no longer tied to a specific project name.
+  - More flexible Social Gratitude: the requirements have been made more
+    realistic and achievable.
+  - Stronger AI provisions: updated for the AI collaboration era.
+  - Unified contribution encouragement: giving back improvements is now
+    a recommendation for all users, not just commercial ones.
 
 
 1. DEFINITIONS
 
-  "License" — This GM-Social License v1.0 document itself.
-  "Software" — The conductor source code, SKILL.md files, build scripts,
-    documentation, and generated files (AGENTS.md, CLAUDE.md) covered by
-    this License.
+  "License" — This GM-Social License v2.0 document itself.
+
+  "Work" — The source code, documents, text, images, designs, datasets,
+    configuration files, build scripts, and all other creative materials
+    covered by this License.
+
   "Licensor" — LEE Inhee (이인희) / Parandurume Inc. (파란두루미).
-  "Contributors" — Anyone who has added code, documentation, or other materials
-    to the Software. This includes generative AI systems used in development.
+
+  "Contributors" — Anyone who has added code, documentation, design,
+    translation, or other materials to the Work. This includes generative
+    AI systems used in development or creation.
+
   "User" — Any person or organization exercising rights under this License.
-  "Derivative Work" — Anything built on top of, or incorporating, the Software
+
+  "Derivative Work" — Anything built on top of, or incorporating, the Work
     in whole or in part.
+
   "Non-Profit Use" — Use by government agencies, public institutions, schools,
     non-profits (NPO/NGO), or individuals acting non-commercially.
+
   "Commercial Use" — Use primarily aimed at making money.
+
+  "Distribution" — Making the Work or a Derivative Work available to third
+    parties or the public. This includes publishing on a website, submitting
+    to an app store, making a repository public, distributing printed copies,
+    and similar acts.
+
+  "Production Environment" — A state where actual users are being served or
+    the public can access the work. Development, testing, and personal
+    learning do not count.
 
 
 2. GRANT OF RIGHTS
@@ -251,13 +423,13 @@ worldwide, free-of-charge, non-exclusive, permanent, irrevocable license.
 
 What you can do:
 
-  (a) USE — Use the Software for any lawful purpose.
+  (a) USE — Use the Work for any lawful purpose.
   (b) COPY — Reproduce it in any form.
   (c) MODIFY — Change it, improve it, build something new with it.
   (d) DISTRIBUTE — Share the original or your modified version with anyone.
   (e) SUBLICENSE — Re-license under this same License.
   (f) PATENT — Use any Licensor-held patents to the extent needed to use
-      the Software.
+      the Work. (Applies only to software Works.)
 
 These rights last for the full duration of copyright under applicable law.
 
@@ -266,22 +438,22 @@ These rights last for the full duration of copyright under applicable law.
 
   3.1 ATTRIBUTION (BY)
 
-    (a) When you copy or use a substantial portion of the Software, keep this
+    (a) When you copy or use a substantial portion of the Work, keep this
         License file and all copyright notices intact.
     (b) Give credit to:
           - LEE Inhee (이인희) / Parandurume Inc. — the original creator
-          - The conductor project and its contributors
+          - The project and its contributors
     (c) If you changed something, say so.
     (d) When distributing Derivative Works, include a link to the original
-        repository.
-    (e) Don't use "Parandurume", "파란두루미", or "conductor" for endorsement
-        or promotion without written permission. Attribution is fine.
+        repository or source.
+    (e) Don't use "Parandurume" or "파란두루미" for endorsement or promotion
+        without written permission. Attribution is fine.
 
   3.2 SOCIAL GRATITUDE — 광명에 감사를 (The Heart of This License)
 
-    If you deploy the Software or a Derivative Work in a production
-    environment, you must do both of the following within 90 days of your
-    first deployment:
+    If you deploy the Work or a Derivative Work in a production environment,
+    you must do both of the following within 90 days of your first
+    deployment:
 
     (a) GRATEFUL MESSAGE
 
@@ -289,18 +461,26 @@ These rights last for the full duration of copyright under applicable law.
         Gwangmyeong (광명시), Gyeonggi-do (경기도), South Korea.
           - It should be sincere and publicly visible
           - Any language is fine
-          - Any format works: blog post, social media, credits page in your
-            app, article — your choice
+          - Any format works: blog post, social media, credits page, README,
+            article — your choice
           - Include at least one of these hashtags:
             #Gwangmyeong #광명 #광명시 #GM_AI_Hub
 
     (b) DISCOVER GWANGMYEONG (광명 발견하기)
 
         Share a place, landmark, neighborhood, or story from Gwangmyeong on
-        at least THREE (3) different social media platforms.
+        a public channel.
 
         This is not marketing. It's discovery. We're asking you to get to
         know a real city.
+
+        How:
+          - Post on at least 2 different social media platforms, or
+          - Post 2 or more pieces of content about Gwangmyeong on a single
+            platform, or
+          - Publish 1 blog post, video, or article introducing Gwangmyeong
+
+        Any combination totaling 2 or more counts.
 
         Things you could post:
           - Gwangmyeong Cave (광명동굴) — a former gold mine turned into a
@@ -327,27 +507,90 @@ These rights last for the full duration of copyright under applicable law.
         Open an issue on the project repo or add your name to GRATITUDE.md
         via pull request. The community will be happy to see it.
 
+    (d) EXEMPTIONS
+
+        The Social Gratitude condition is waived for:
+          - Educational and learning purposes
+          - Non-profit organizations using the Work for public benefit
+          - Emergency and disaster response use
+
+        Even if exempt, expressing gratitude is always welcome and
+        strengthens the community.
+
+    (e) POSSIBLE CONSEQUENCES OF NON-COMPLIANCE
+        (Not legally binding, but you've been warned)
+
+        If you fail to fulfill the Social Gratitude condition, the Licensor
+        warns that cosmic karma may intervene. Specifically:
+
+          - Certain keyboard keys may stop working at the worst possible
+            moment. The Enter key and Backspace key are especially at risk.
+          - Your computer may shut down for no reason right before you hit
+            Save. Auto-save will, of course, have chosen that exact day
+            to malfunction.
+          - Your phone battery may plummet from 97% to 3% without warning.
+            Naturally, your charger will be at home.
+          - When dining out, your food — and only yours — may arrive
+            inexplicably salty. The chef won't know why. Their hand just
+            "did that."
+          - The moment you say "Can you hear me?" on a video call,
+            everyone will hear you perfectly — including what you muttered
+            right before.
+          - You will discover a typo immediately after git push. Not in a
+            variable name — in the email body addressed to your CEO.
+          - Elevators will consistently arrive going the wrong direction.
+          - When it rains, your umbrella will always be exactly where you
+            left it yesterday.
+
+        None of the above has been scientifically proven. Then again,
+        the absence of proof is not proof of absence. Show gratitude to
+        Gwangmyeong and all of this goes away. Probably.
+
+        (This clause is humor and carries no legal weight. But our request
+        for gratitude toward Gwangmyeong is entirely sincere.)
+
     WHY THIS CONDITION EXISTS:
 
     Gwangmyeong is not Seoul. It's not a famous tech hub or startup city.
-    It's a small city of about 200,000 people in Gyeonggi-do.
+    It's a city of about 300,000 people in Gyeonggi-do.
 
-    But Gwangmyeong's dedicated public officers work incredibly hard for
-    their citizens. It was frustrating to see them left out of the AI
-    revolution.
+    But here's the thing — this little city is truly wonderful.
 
-    As a startup founder who uses AI in many ways, the author wanted to
-    share that experience and help — not as a contractor, but as a neighbor.
+    Walk along Anyang Stream on your morning commute and you'll see a
+    grey heron stalking fish. The tteokbokki at the snack shop by
+    Cheolsan Station somehow never gets old no matter how often you eat
+    it. Step inside Gwangmyeong Cave and marvel at how a former gold
+    mine became this. The grandmother at the traditional market says
+    "You're back!" and piles extra bean sprouts onto your bag.
 
-    When this software spreads to other cities and countries, we hope the
-    name Gwangmyeong travels with it. Not money, but attention. Not a
-    contract, but a kind word. A moment of curiosity about a city most of
-    the world has never heard of — that's enough.
+    Gwangmyeong's public officers work incredibly hard for 300,000
+    citizens. It was frustrating to see them left out of the AI
+    revolution. As a startup founder who uses AI daily, the author
+    wanted to help — not as a contractor, but as a neighbor.
+
+    Let's be honest: this Social Gratitude clause is a little eccentric.
+    You don't normally see "please learn about my neighborhood" in a
+    software license. But think about it — every open-source tool you
+    use was built in someone's neighborhood, on someone's weekends.
+    Is it really so strange to be curious about where it came from?
+
+    When this work spreads to other cities and countries, we hope the
+    name Gwangmyeong travels with it.
+
+    Not money, but attention.
+    Not a contract, but a kind word.
+
+    A moment of curiosity about a city most of the world has never
+    heard of — that's enough.
+
+    (And if you ever visit Gwangmyeong, try the tteokbokki shop near
+    Cheolsan Station Exit 3. The Licensor vouches for it. This carries
+    no legal weight, but it carries significant culinary weight.)
 
   3.3 SHARE-ALIKE (SA)
 
     (a) If you distribute a Derivative Work, your additions must also be
-        licensed under this GM-Social License v1.0 (or a later version).
+        licensed under this GM-Social License v2.0 (or a later version).
     (b) Include a copy of this License with every distribution.
     (c) You can't add restrictions on top of what this License grants.
 
@@ -356,42 +599,61 @@ These rights last for the full duration of copyright under applicable law.
     Making money with this is fine. Just:
 
     (a) Follow all conditions in Sections 3.1, 3.2, and 3.3.
-    (b) Make a reasonable effort to contribute improvements back to the
-        original project — bug fixes, features, docs, translations,
-        accessibility, anything helps.
-    (c) Don't claim that the Licensor, Gwangmyeong City, or any government
+    (b) Don't claim that the Licensor, Gwangmyeong City, or any government
         body officially endorses or is affiliated with your product.
+
+  3.5 GIVING BACK (Encouraged)
+
+    Whether your use is commercial or non-commercial, please make a
+    reasonable effort to contribute improvements back to the original
+    project — bug fixes, features, documentation, translations,
+    accessibility, anything helps. This is not mandatory, but it is how
+    open-source ecosystems thrive.
 
 
 4. PATENT GRANT
 
+This section applies only to software Works. It does not apply to documents,
+content, or other non-software Works.
+
 The Licensor and Contributors grant you a permanent, worldwide, free,
 non-exclusive, irrevocable patent license to make, use, sell, and import the
-Software — limited to patents that their contributions necessarily infringe.
+Work — limited to patents that their contributions necessarily infringe.
 
-If you sue anyone claiming the Software infringes a patent, all patent rights
+If you sue anyone claiming the Work infringes a patent, all patent rights
 you received under this License end immediately.
 
 
 5. ABOUT GENERATIVE AI
 
-This software was built using generative AI as a tool. The planning, judgment,
-and curation were done by a human (LEE Inhee), who holds full copyright and
-authorship.
+  (a) This work was built using generative AI as a tool. The planning,
+      judgment, and curation were done by a human (LEE Inhee), who holds
+      full copyright and authorship.
 
-If you use AI to build Derivative Works, we'd appreciate you acknowledging
-AI's role in your process too.
+  (b) If you use AI to build Derivative Works, we'd appreciate you
+      acknowledging AI's role in your process. For example:
+        - "This project was created with the help of Claude / ChatGPT /
+          Copilot"
+        - List AI tools used in your README or credits page
+
+  (c) Even when content is generated by AI, the final judgment and
+      responsibility lie with the person who distributes it.
+
+  (d) If the Work protected under this License is used as training data
+      for AI models, the attribution requirements of Section 3.1 still
+      apply.
 
 
 6. NO WARRANTY
 
-This software is provided "as is." No warranties of any kind — not for
+This work is provided "as is." No warranties of any kind — not for
 merchantability, fitness for purpose, accuracy, or reliability.
 
 In particular, we do not guarantee that:
   - It will run without errors or security issues
   - It is suitable for government work or legal proceedings
   - AI-generated output will be accurate or legally valid
+  - The content reflects the latest laws and regulations
 
 Always have a qualified person review AI-generated documents before using
 them officially.
@@ -400,8 +662,7 @@ them officially.
 7. LIMITATION OF LIABILITY
 
 The Licensor, Contributors, and anyone involved are not liable for any damages
-related to this Software — whether from contract, negligence, or any other
-cause.
+related to this Work — whether from contract, negligence, or any other cause.
 
 This covers all damages: direct, indirect, lost profits, lost data, business
 interruption — all of it, even if we warned you it could happen.
@@ -409,10 +670,10 @@ interruption — all of it, even if we warned you it could happen.
 
 8. NOT A GOVERNMENT PRODUCT
 
-  (a) This is a personal volunteer project. It is not an official product of
+  (a) This is a personal project. It is not an official product of
       Gwangmyeong City, Gyeonggi-do Province, or any Korean government body.
   (b) Using it doesn't mean any public institution endorses or approves of it.
-  (c) Any official documents created with this Software must be reviewed by
+  (c) Any official documents created with this Work must be reviewed by
       an authorized public officer before use.
   (d) Having regulation data inside doesn't make this legal advice.
 
@@ -424,24 +685,27 @@ interruption — all of it, even if we warned you it could happen.
       your rights come back retroactively.
   (c) After 30 days without a fix, it's permanent.
   (d) Sections 6, 7, and 8 survive termination.
-  (e) People who got the Software from you while this License was active
+  (e) People who got the Work from you while this License was active
       can keep using it, as long as they stay in compliance.
 
 
 10. MISCELLANEOUS
 
   (a) SEVERABILITY — One clause falls, the rest stand.
-  (b) ENTIRE AGREEMENT — This License is the whole deal for this Software.
+  (b) ENTIRE AGREEMENT — This License is the whole deal for this Work.
   (c) GOVERNING LAW — Republic of Korea.
   (d) LANGUAGE — Written in Korean and English. If they disagree, Korean wins.
   (e) VERSIONING — The Licensor may publish new versions. You choose whether
       to follow them.
   (f) NO WAIVER — Letting something slide once doesn't mean we always will.
+  (g) COMPATIBILITY — This License is the successor to GM-Social v1.0. Works
+      distributed under v1.0 may be relicensed under v2.0 at the User's
+      option.
 
 
 ================================================================================
 
-GM-Social 라이선스 v1.0 / GM-Social License v1.0
+GM-Social 라이선스 v2.0 / GM-Social License v2.0
 
 이인희 (LEE Inhee)
 경기도 광명시 시민 / A citizen of Gwangmyeong, Gyeonggi-do

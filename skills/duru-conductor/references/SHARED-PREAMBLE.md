@@ -57,7 +57,7 @@ When creating any artifact file (INTAKE.md, BUILD-LOG.md, REVIEW.md, RETROSPECTI
 
 > Project: [project name or description]
 > Created: [YYYY-MM-DD]
-> Skill: [/conductor, /review, or /retro]
+> Skill: [/duru-conductor, /review, or /retro]
 ```
 
 This header enables other skills to identify who created the artifact and when.

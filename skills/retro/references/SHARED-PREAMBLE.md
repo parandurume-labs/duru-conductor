@@ -1,6 +1,6 @@
 # Shared Preamble — Common Patterns for All Skills
 
-This reference defines shared logic used by conductor, review, retro, and other skills. Load this file when you need project detection, artifact awareness, or standard formatting.
+This reference defines shared logic used by duru-conductor, review, retro, and other skills. Load this file when you need project detection, artifact awareness, or standard formatting.
 
 ---
 
@@ -57,7 +57,7 @@ When creating any artifact file (INTAKE.md, BUILD-LOG.md, REVIEW.md, RETROSPECTI
 
 > Project: [project name or description]
 > Created: [YYYY-MM-DD]
-> Skill: [/conductor, /review, or /retro]
+> Skill: [/duru-conductor, /review, or /retro]
 ```
 
 This header enables other skills to identify who created the artifact and when.

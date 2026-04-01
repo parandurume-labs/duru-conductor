@@ -6,14 +6,19 @@ This file helps Claude Code discover available skills. Each skill's full content
 
 | Skill | Command | Description |
 |---|---|---|
+| azure-ai-foundry | /azure-ai-foundry | Azure AI Foundry and Azure OpenAI best practices. Use when building AI applications with Azure AI Foundry (formerly A... |
 | azure-best-practices | /azure-best-practices | Azure cloud architecture and deployment best practices. Use when building, deploying, or configuring Azure services i... |
+| azure-security-audit | /azure-security-audit | Azure security audit and hardening patterns. Use when auditing Azure infrastructure security, migrating Key Vault acc... |
 | careful | /careful | Safety guardrails that warn before destructive commands. Use to protect beginners from accidentally running dangerous... |
-| conductor | /conductor | Universal project orchestrator for any type of project. Use this skill when starting a new project, planning work, or... |
+| duru-conductor | /duru-conductor | Universal project orchestrator for any type of project. Use this skill when starting a new project, planning work, or... |
+| korean-compliance | /korean-compliance | 한국 규정 준수 및 개인정보보호 패턴. KISA ISMS-P 인증, 개인정보보호법(PIPA 2024), 한국표준시(KST) 처리, 한국어 사용자 인터페이스 패턴, NIA AI 윤리 가이드라인을 적용할 때 사용합... |
+| m365-copilot-extensions | /m365-copilot-extensions | Microsoft 365 Copilot extension development patterns. Use when building declarative agents, API plugins, Graph connec... |
 | m365-workflows | /m365-workflows | Microsoft 365 integration patterns for Teams, SharePoint, and Outlook automation. Use when building Teams bots, sendi... |
 | marketing | /marketing | Marketing content generator for 파란두루미. Helps marketing beginners create ready-to-publish Korean content across YouTube Shorts, Instagram Reels, TikTok, 카드뉴스, 네이버 블로그, LinkedIn, 브런치. |
 | retro | /retro | Standalone retrospective for any completed project or work session. Use when the user wants to reflect on what went w... |
 | review | /review | Post-build quality review for any project type. Use when you want a staff-level review of completed work — code quali... |
 | video-agent | /video-agent | 웹사이트 URL로 홍보 영상 자동 제작. 사이트 분석 → 시나리오 기획 → 사용자 승인 → Playwright 녹화 → FFmpeg 자막 합성. 숏폼(9:16)/롱폼(16:9) 지원. |
+| web-browser-review | /web-browser-review | Automated web app review using a headless browser. Use when you need to test a running web application for visual qua... |
 
 ## Skill Dependencies
 
@@ -21,11 +26,12 @@ Skills work independently, but produce better results when chained:
 
 | Skill | Benefits From |
 |---|---|
-| careful | conductor |
-| marketing | conductor |
-| retro | conductor, review |
-| review | conductor |
-| video-agent | conductor, marketing |
+| careful | duru-conductor |
+| marketing | duru-conductor |
+| retro | duru-conductor, review |
+| review | duru-conductor |
+| video-agent | duru-conductor, marketing |
+| web-browser-review | duru-conductor, review |
 
 ## Usage
 
@@ -33,12 +39,17 @@ Invoke any skill by typing its command (e.g., `/conductor`) in your AI coding ag
 
 ## Skill Files
 
+- `skills/azure-ai-foundry/SKILL.md`
 - `skills/azure-best-practices/SKILL.md`
+- `skills/azure-security-audit/SKILL.md`
 - `skills/careful/SKILL.md`
-- `skills/conductor/SKILL.md`
+- `skills/duru-conductor/SKILL.md`
+- `skills/korean-compliance/SKILL.md`
+- `skills/m365-copilot-extensions/SKILL.md`
 - `skills/m365-workflows/SKILL.md`
 - `skills/marketing/SKILL.md`
 - `skills/retro/SKILL.md`
 - `skills/review/SKILL.md`
 - `skills/video-agent/SKILL.md`
+- `skills/web-browser-review/SKILL.md`
 

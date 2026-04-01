@@ -1,15 +1,17 @@
 # Build Log
 
-> Project: 파란두루미 마케팅 Skill 제작
-> Created: 2026-03-26
-> Skill: /conductor
+> Project: Conductor v2 — New Skill Pack + Self-Improving Feedback Loop
+> Created: 2026-03-31
+> Skill: /duru-conductor
 
 | Workstream | Status | Files Created/Modified | Notes |
 |---|---|---|---|
-| #1 마케팅 전략 수립 | DONE | skills/marketing/references/STRATEGY.md | 페르소나 3개, 채널별 전략 6개, 콘텐츠 캘린더, 톤앤매너, 해시태그 전략 |
-| #2 Skill 구조 설계 | DONE | skills/marketing/SKILL.md | 7개 콘텐츠 타입 지원, 6단계 플로우 설계 |
-| #3 콘텐츠 템플릿 제작 | DONE | skills/marketing/references/CONTENT-TEMPLATES.md | 7개 콘텐츠 타입 × 20개 템플릿 변형, {{변수}} 플레이스홀더 |
-| #4 채널별 가이드 제작 | DONE | skills/marketing/references/CHANNEL-GUIDE.md, VISUAL-DIRECTION.md | 6개 채널 규격·게시시간·알고리즘 팁, 브랜드 비주얼 가이드 |
-| #5 회사 레퍼런스 구축 | DONE | skills/marketing/references/COMPANY-PROFILE.md, BRAND-VOICE.md | 제품 상세, 핵심 메시지 10선, 톤 스펙트럼, FAQ 모범 답변 |
-| #6 Skill 통합 조립 | DONE | SKILL.md 수정, HASHTAG-SEO.md 생성, CLAUDE.md, AGENTS.md 업데이트 | 파일명 불일치 수정, 누락 레퍼런스 추가, 스킬 등록 완료 |
-| #7 QA & 테스트 | DONE | STRATEGY.md, HASHTAG-SEO.md 수정 | 18 PASS, 2 FAIL 수정(해시태그 오타, CES 연도 통일), 3 WARN(경미) |
+| Setup | DONE | INTAKE.md, ARCHITECTURE.md, BUILD-LOG.md | Artifacts from design doc |
+| korean-compliance | DONE | skills/korean-compliance/SKILL.md | 11 rules — PIPA, ISMS-P, KST, Korean UI, NIA AI ethics |
+| azure-ai-foundry | DONE | skills/azure-ai-foundry/SKILL.md | 12 rules — identity, deployment, prompt flow, cost, containers |
+| m365-copilot-extensions | DONE | skills/m365-copilot-extensions/SKILL.md | 10 rules — declarative agents, API plugins, Graph connectors |
+| azure-security-audit | DONE | skills/azure-security-audit/SKILL.md | 12 rules — identity, network, threat protection, monitoring |
+| Expand azure-best-practices | DONE | skills/azure-best-practices/SKILL.md | +10 rules (22-31): Container Apps Jobs, SWA, Bicep registry, monitoring, cost |
+| Expand m365-workflows | DONE | skills/m365-workflows/SKILL.md | +8 rules (12-19): Graph batch, Teams SSO, SPFx, Outlook, Planner, Power Automate |
+| LESSONS.md convention | DONE | All 11 SKILL.md files | Added "Learned Patterns" section to every skill |
+| Build & index | DONE | CLAUDE.md, AGENTS.md, README.md | Regenerated index, updated README with all 11 skills |
